@@ -1,0 +1,43 @@
+#include<stdlib.h>
+#include<stdio.h>
+int main()
+{
+    system("clear");
+    int decimalism = 0;//定义十位数
+    int quotient = 0;//定义商值
+    int remainder = 0;//定义余数
+    int i;//循环数
+    printf("请输入需要转换的十进制的数\n");
+    scanf("%d",&decimalism);
+    int a[8];
+    for(i = 0;i < 8;i++)
+    {
+        a[i] = 0;
+    }
+    //quotient = decimalism
+    quotient = decimalism;
+    //remainder = decimalism%2;
+    //a[0] = remainder;
+    //printf("%d\n",a[0]);
+    for(i = 0;i < 8;i++)
+    {
+        remainder = quotient%2;
+        quotient = quotient/2;
+        a[i] = remainder;
+        if(quotient == 0)
+        {
+            a[0] = 1;
+            break;
+        }
+        if(quotient == 1)
+        {
+            a[i+1] = 1;
+            break;
+        }
+        //printf("%d",a[i]);
+    }
+    for(i = 7;i >= 0;i--)
+    {
+        printf("%d",a[i]);
+    }
+}
